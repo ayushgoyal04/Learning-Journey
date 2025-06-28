@@ -1,0 +1,17 @@
+{% extends "movies/_base.html" %}
+
+<!DOCTYPE html>
+<html>
+    {% block content %}
+<head>
+    <title>About</title>
+</head>
+<body>
+    <h1>movies</h1>
+    <p>Welcome to our movie app! We are passionate about movies and aim to provide you with the best movie recommendations and information.</p>
+    <p>Feel free to explore our website and discover new movies to watch. If you have any questions or suggestions, please don't hesitate to contact us.</p>
+    {% load static %}
+    <img style='width: 100px;' src="{% static 'movies/img.jpg' %}" alt="About-Me-Picture">
+</body>
+{% endblock  %}
+</html>

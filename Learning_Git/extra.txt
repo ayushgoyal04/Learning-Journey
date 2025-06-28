@@ -1,0 +1,11 @@
+repo owner will make files and folders initial step
+then push these into github
+add collabarators
+
+All the colaborators can now clone the repo
+[imp] create your branch
+Write your code in the branch
+commit the changes and push the changes
+The owner can fetch, nerge and re-push the code
+
+DJANGO_SECRET_KEY='8k8@%m(7r$j^7erf@a3*pdwwaf4#)rdhyc&pt+h%n91ij8%lrg'

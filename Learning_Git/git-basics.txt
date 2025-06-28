@@ -1,0 +1,29 @@
+Whenever we create a folder, git knows nothing about our folder....
+Hence we initialize our folder, now git has the permission to identify the files of this folder.
+Now that git can work in this folder, it can maintain untracked, tracked, modified, staged and saved checkpoints.
+Git can also tell us about how many files we have at a particular stage
+
+git status -s =>
+    -> Git will tell us the status only of the files which are either not commited or modified after the commit.
+    -> A commited and unchanged file is also like a new file (i.e., it does not have a status)
+
+git log --oneline =>
+    -> Tells us all commit history
+
+
+Conflicts and merging =>
+1. 3 way merge =>
+    The merge is done in the main branch between-- the main, the updated main and the updated branch (3 nodes involved)
+
+2. Fast forward merge =>
+    Instead of commiting/ merging the branch into the main, we just assign the branch as the main.
+    The location/ pointer of head changes
+
+
+Stashing =>
+git stash                      -> draft the changes while we switch branch
+git stash apply                -> bring back the changes made erlier before switching
+git stash clear                -> clear/ delete the draft
+    When we are writing code in a branch and we have not committed the code in the branch and we try to change the branch, then git gives us a warnign that the changes are not saved(checkpoint is not created) and the changes will be deleted.
+    If we want we can let the changes be deleted or we can 'draft' the changes.
+    The drafted changed will neither be deleted nor be saved/added/committed, when we come back to the branch then we can apply those changes again.

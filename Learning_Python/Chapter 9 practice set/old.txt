@@ -1,0 +1,2 @@
+This is a file, we need to change its name. 
+#   approach taken-> copy the content in another file with the desired name.

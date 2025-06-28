@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Home Page
+{% endblock %}
+
+{% block content %}
+<h1 class="bg-teal-500 text-3xl">Chai aur code | HomePage</h1>
+<p class="text-center w-20 bg-orange-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, nostrum.</p>
+{% endblock %}
+
+
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <header class="hero-section">
+        <div class="overlay">
+            <nav>
+                <ul>
+                    <li><a href="http://127.0.0.1:8000/home/">Home</a></li>
+                    <li><a href="http://127.0.0.1:8000/about/">About</a></li>
+                    <li><a href="http://127.0.0.1:8000/contact/">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="hero-content">
+                <h1>Welcome to Our World</h1>
+                <p>Innovating the Future, One Step at a Time</p>
+                <a href="#services" class="btn">Explore Our Services</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="services" class="services">
+            <h2>Our Services</h2>
+            <div class="service-grid">
+                <div class="service-item">
+                    <h3>Web Development</h3>
+                    <p>We build modern, responsive, and user-friendly websites that elevate your online presence.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Digital Marketing</h3>
+                    <p>Our digital marketing strategies help you reach your target audience effectively.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Branding</h3>
+                    <p>We create unique and memorable brand identities that resonate with your audience.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="about">
+            <h2>Who We Are</h2>
+            <p>We are a team of passionate professionals dedicated to delivering top-notch solutions that drive success. Our expertise spans across various domains, and we are committed to excellence in everything we do.</p>
+            <a href="http://127.0.0.1:8000/about/" class="btn">Learn More About Us</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+    </footer>
+</body>
+</html> {% endcomment %}

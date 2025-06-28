@@ -1,0 +1,5 @@
+Hi this is a line of code
+This line of code is added from the branch
+Hello (written from main branch)
+hey (THis line of code is written from the branch feature/navbar)
+change made in main branch (I will switch without committing) hhaDv

@@ -1,0 +1,3 @@
+Ayush is learning how to write in file in python.
+This  is  second line
+This is amazing

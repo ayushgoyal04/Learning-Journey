@@ -1,0 +1,129 @@
+# Ignore node_modules folder (Node.js projects)
+node_modules/
+
+# Ignore log files
+*.log
+logs/
+*.log.*
+
+# Ignore operating system files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE or editor-specific files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Ignore environment files
+.env
+venv
+.venv
+.env.local
+.env.*.local
+env/
+.env/
+..env/
+...env/
+
+# Ignore build files
+dist/
+build/
+
+# Ignore temporary files
+*.tmp
+*.temp
+*.bak
+*.old
+*.swp
+*.swo
+~*
+
+# Ignore generated files
+*.out
+*.class
+*.pyc
+*.o
+*.obj
+*.dll
+*.exe
+
+# Ignore coverage reports
+coverage/
+.nyc_output/
+
+# Ignore specific tooling files
+yarn-error.log
+.pnpm-debug.log
+npm-debug.log
+
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Environment variables
+.env
+*.env
+
+# Virtual environment folders
+venv/
+env/
+ENV/
+.venv/
+.ENV/
+
+# IDE specific files
+.idea/
+.vscode/
+
+# Django specific files
+*.log
+local_settings.py
+db.sqlite3
+*.sqlite3
+
+# Static files and media
+/static/
+/media/
+
+# Byte-compiled and optimized files
+*.pyc
+*.pyo
+
+# Test coverage reports
+.coverage
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Deployment
+*.pid
+
+# Build and distribution files
+build/
+dist/
+*.egg-info/
+*.eggs/
+
+# Node modules if using frontend in Django
+node_modules/
+
+# Temporary files
+*.tmp
+*.swp
+*.bak
+*.old
+
+# Mac OS files
+.DS_Store
+
+# Windows files
+Thumbs.db

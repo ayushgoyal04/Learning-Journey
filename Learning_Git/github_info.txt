@@ -1,0 +1,9 @@
+repo owner will make files and folders initial step
+then push these into github
+add collabarators
+
+All the colaborators can now clone the repo
+[imp] create your branch
+Write your code in the branch
+commit the changes and push the changes
+The owner can fetch, nerge and re-push the code

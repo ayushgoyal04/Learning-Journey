@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Example</title>
+    <style>
+        .image1 {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+
+        .image2 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transition: transform 0.3s;
+        }
+
+        .image1:hover ~ .image2 {
+            transform: scale(1.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="image1"></div>
+    <div class="image2"></div>
+</body>
+</html>
