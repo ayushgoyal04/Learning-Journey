@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function hasPrototypeProperty(object, name){
+            return !object.hasOwnProperty(name) && (name in object);
+        }
+        function Person() {
+
+        }
+
+        Person.prototype.name = "Ayush";
+        Person.prototype.age = 20;
+        Person.prototype.job = "Software Engineer";
+        Person.prototype.sayName = function () {
+            console.log(this.name);
+        };
+        var person1 = new Person();
+        console.log(hasPrototypeProperty(person1, "name")); // true
+        person1.name = "John";
+        console.log(hasPrototypeProperty(person1, "name")); // false
+        console.log(person1.name); // John
+    </script>
+</head>
+<body>
+
+</body>
+</html>

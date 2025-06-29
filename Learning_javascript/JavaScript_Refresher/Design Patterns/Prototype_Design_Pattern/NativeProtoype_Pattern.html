@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        // function Date() {
+
+        // }
+        // // this mehtod of defining prototypes is incorrect because every time Data.ptototype is called it will create a refernces search for the identifier ie the prototype. this will cause latency issues
+        //     // Data.prototype.getHours=function() {
+        //     //     console.log("getHours called");
+        //     // };
+
+        //     // Data.prototype.getMinutes=function() {
+        //     //     console.log("getMinutes called");
+        //     // };
+
+        //     // Data.prototype.getSeconds=function() {
+        //     //     console.log("getSeconds called");
+        //     // };
+
+        //     // one should always put the common reuable methods in the prototype of the constructor function. this is because the prototype is a shared memory space for all the instances of the constructor function. this way we can avoid duplication of methods and save memory.
+
+
+        //     // native prototype pattern
+        //     Date.prototype.myFunction = function() {
+        //         console.log("This is a prototype method");
+        //     }
+        //     a = new Date();
+        //     b = new Date();
+
+        //     a.myFunction(); // This is a prototype method
+
+
+
+        function Person() {
+            this.name = "Ayush";
+            this.age = 20;
+            this.job = "Software Engineer";
+        }
+// This is the MOST optimal way to assign prototypes.
+// use prototypes in an literal location
+// populate prototypes in an object literal notation-> performance wise it is better
+    Person.prototype = {
+
+            constructor: Person, // explicitly set the constructor property of the prototype to the Person function
+
+            sayName : function () {
+                console.log(this.name);
+            },
+
+            sayLocation : function () {
+                console.log("India");
+            },
+
+            sayJob : function () {
+                console.log(this.job);
+            },
+        }
+        var person1 = new Person();
+        person1.sayName(); // Ayush
+        person1.sayLocation(); // India
+        var friend = new Person();
+        console.log(friend.constructor == Person) // false // value retrieved- [friend(instance), person.prototype, window]
+        // to make this true, we will explicitly set the constructor property of the prototype to the Person function
+
+        console.log(person1.hasOwnProperty("Name")); // false // lets us verify of the value is coming from the instace or the prototype
+        console.log("name" in person1); // true // name value is avalable durign execution but it is not available in the context
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

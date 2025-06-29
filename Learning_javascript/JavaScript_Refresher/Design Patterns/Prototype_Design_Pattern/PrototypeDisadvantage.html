@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function Person() {
+            this.name = "Ayush";
+            this.age = 20;
+            this.job = "Software Engineer";
+            // this.frineds = ['shelby', 'john', 'jane']; // this is the correct way to do it, so that each instance has its own copy of the array
+        }
+
+        Person.prototype = {
+            constructor: Person,
+
+            name: "Ayush",
+            age: 28,
+            job: "Software Engineer",
+            friends : ["John", "Jane", "Doe"],
+
+            sayName : function () {
+                console.log(this.name);
+            },
+        };
+        var person1 = new Person();
+        var person2 = new Person();
+        person1.friends.push("Alice");
+        console.log(person1.friends); // ["John", "Jane", "Doe", "Alice"]
+        console.log(person2.friends); // ["John", "Jane", "Doe", "Alice"]
+        // here the values for both the person in being overridden by the last person instance created, this is because the prototype is shared between all the instances of the Person constructor function.
+        // IMP-> prototype should not have any other reference types witht he exception of commonly ised methods
+        // Solution-> the array shouyd be in the constructor function, so that each instance has its own copy of the array.
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

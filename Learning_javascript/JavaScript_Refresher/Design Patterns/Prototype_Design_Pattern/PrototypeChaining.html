@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function SuperType() {
+            // this.property = true; // with primitive datatype this works fine, but with reference datatype it will not work as expected, because the prototype will be shared between all the instances of SubType.
+            this.colors = ['red', 'green', 'blue'];
+        }
+
+        SuperType.prototype.getSuperValue = function() {
+            return this.property;
+        };
+
+
+        function SubType() {
+            // this.subproperty = false;
+        }
+
+        // inherit from Supertype
+        SubType.prototype = new SuperType(); // prototype chaining-> if we do this, the SubType prototype will inherit all the properties and methods of SuperType prototype.
+        // we are making the prototype as the instance of SuperType, so that we can access the properties and methods of SuperType in SubType.
+        
+        SubType.prototype.getSubValue = function () {
+            return this.subproperty;
+        };
+
+        var instance = new SubType();
+        // scope chain-> [instance-> SubType.prototype-> SuperType.prototype-> Object.prototype]
+
+        console.log(instance.getSuperValue()); // true
+
+        console.log(instance instanceof Object);
+        console.log(instance instanceof SuperType); // true
+        console.log(instance instanceof SubType); // true
+
+        console.log(Object.prototype.isPrototypeOf(instance)); // true
+        console.log(SuperType.prototype.isPrototypeOf(instance)); // true
+        console.log(SubType.prototype.isPrototypeOf(instance)); // true
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+
+        class PersonClass {
+            constructor(name) {
+                this.name = name;
+            }
+
+            sayName() {
+                console.log(this.name);
+            }
+
+        }
+
+        person1 = new PersonClass("Ayush")
+
+        PersonClass.prototype.someMessage = function() {
+            console.log("Some message from the prototype");
+        }
+
+        person1.someMessage();
+        person1.sayName();
+        console.log(person1 instanceof PersonClass); // true
+        console.log(person1.constructor === PersonClass); // true
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
