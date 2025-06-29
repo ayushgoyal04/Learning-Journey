@@ -21,4 +21,17 @@ const smoothie = {
     greens: ['spinach', 'kale'],
 }
 console.log(typeof smoothie); // object
-const { } = smoothie;
+const { fats } = smoothie; // this is using forEach and find behind the scenes, hence we have to use the same name as the key in the object
+console.log(fats); // ['peanut butter', 'almond butter', 'greek yogurt']
+console.log(fats[0]); // peanut butter
+
+const containsSpinach = ({ greens }) => {
+    if (greens.find(g => g === 'spinach')) {
+        return true;
+    } else {
+        return false;
+    }
+}
+;
+
+console.log(containsSpinach(smoothie))
