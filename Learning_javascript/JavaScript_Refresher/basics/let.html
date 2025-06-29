@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        if (true){
+            // non lexical scope
+            let x = 100;
+            var y = 200;
+            const z = 300;
+            // z = 100; // const cannot be reassigned, this will throw an error, they are immutable
+        }
+        // console.log(x); // This will throw an error, because x is not defined in the global scope
+        console.log(y); // This will log 200, because y is defined in the global
+        // console.log(z); // This will throw an error, because z is not defined in the global scope
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        var color = "blue";
+
+        function changeColor(){
+            var anotherColor = "red";
+
+            function swapColor(){
+                var tempColor = anotherColor; // the order of searchign in the scope is first in the local scope, then in the parent scope, then in the global scope so: [swapColor->ChangeColor->Global scope] This array is the scopeChain Augmentation [SCA]
+                // The first scope in the scope chain is known as the activation object
+                // all the scopes collectively in the scopechain are reffered as the execution context
+                anotherColor = color;
+                color = tempColor;
+            }
+            // the inner scopes have mroe privilege than the outer scopes
+            // the inner scopes can access the variables of the outer scopes, but the outer scopes cannot
+            swapColor();
+        }
+        // the runtime context is the global scope or the window scope
+        changeColor();
+        console.log("color is : " + color);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

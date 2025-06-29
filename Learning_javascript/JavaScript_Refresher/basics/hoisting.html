@@ -1,0 +1,34 @@
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic HTML Template</title>
+    <script type="text/javascript">
+        // OS does not allow more that 5% of the memory of the os to the browser, 2.5% on the mobile
+        // the only global scope runnign all the time is the windows scope which is an instance of the browser.
+        // only functions and objects have lexical scopes in javacript
+        // variables declared with var are not block scoped, they are function scoped
+
+        if (true) { // Non lexical scopes
+            var x = 100; // usign a var statement insisde a nonlexical scope it will do hoisting
+            // hoisting means that the variable is moved to the top of the function or global scope so that the variable is available throughout the function or global scope
+            // hoisting is an antia-pattern in javascript, it is better to use let or const to avoid hoisting
+            // if you use let or const, it will not be hoisted and will only be available in the block scope
+        }
+        console.log(x); // This will log 100
+
+        function abc(){
+            var y = 200;
+            console.log(y);
+            console.log(x); // This will log 100, because x is in the global scope
+        }
+        console.log(y); // This will throw an error, because y is not defined in the global scope
+        abc();
+    </script>
+</head>
+<body>
+    <h1>Hello, Javascript!</h1>
+</body>
+</html>

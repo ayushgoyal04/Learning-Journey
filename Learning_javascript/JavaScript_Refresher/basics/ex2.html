@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+/*
+        function a(){
+            var x = 100;
+
+            with (document.location) {
+                var x = 5000;
+            }
+
+            // var x = 2000;
+
+            console.log(x); // Scope Chain Augmentation SCA - [with, a(), window]
+
+            // The with statement places itself inside the top of the scope chain, so it can access variables from the current scope and the global scope.
+
+            // with statement is an anti-pattern in JavaScript
+        }
+        a();
+*/
+
+        function base(){ // usign a var statement in a lexical scope will make it private to the function, hence no hoisting
+            // var x = 100;
+            // var y = 200;
+            // var z = 300;
+            this.x = 100; // this will make the variable x public to the instance of the base function
+            this.y = 200;
+            var z = 300; // this is private
+        }
+
+        // the {} scope of the function is itself called the constructor
+
+        inst1 = new base();
+
+        // inst1 is an instance of the base function, it is an object that has the properties x and y
+        // inst1{
+        //     this.x = 100;
+        //     this.y = 200;
+        // }
+
+        console.log(inst1); // base { x: 100, y: 200 }
+        console.log(typeof inst1); // object
+
+
+        console.log(inst1.x); // undefined // 100
+        console.log(inst1.y); // undefined // 200
+        console.log(inst1.z); // undefined
+
+        // The variables x, y, z are private to the base function and cannot be accessed outside of it.
+        // in order to access these variables we have to maeke them privileged by returning an object with these variables as properties using the this keyword
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

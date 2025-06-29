@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        // it is bad to use this keyword inside a closure, to solve this problem, we have two options, wiother movethe this keyword out of the lcosere, or avoid useing clusire. We do the 1st in this example
+        var name = "Window";
+
+        var object = {
+            name: "my object",
+
+            getNameFunction: function () { // nested function declaration means we are in the situation of closure
+                var x = this; // what we are doing here is moving the this keyword out of the closure
+                return function () {
+                    // return this.name; // this keyword does not bind tt he local scope
+                    return x.name;
+                };
+            },
+        };
+
+        console.log(object.getNameFunction()()); // here we are calling the this keyword from the wnindow frunctiem scome, hence the this.keyword will bind the search to the runtime comntext.
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

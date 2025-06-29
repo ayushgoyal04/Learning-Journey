@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        // DESIGN PATTERN-> proven solution of best practices and are followed by the masses
+        // Design patterns are not a part of the language, they are just a way to solve a problem in a better way
+
+        // 1. Factory Pattern
+        // what makes this the facotry patters is that it is a function that creates and returns an object it is a way to create objects without using the new keyword
+        // it is a way to create objects without using the constructor function
+
+        function createPerson(name, age, job) {
+            // injection-> internal functioning
+            /*
+            var name = John
+            var age = 30;
+            var job = Developer
+            */
+
+            var o = new Object();
+            o.name = name;
+            o.age = age;
+            o.job = job;
+            o.sayName = function() {
+                console.log("Name: " + this.name);
+            };
+            return o;
+        }
+
+        var person1 = createPerson("John", 30, "Developer");
+        /*
+        person1{
+            this.name = John;
+            this.age = 30;
+            this.job = Developer;
+            this.sayname = function() {
+                console.log("Name: " + this.name);
+            };
+        }
+        */
+
+        var person2 = createPerson("Jane", 25, "Designer");
+
+        person1.sayName(); // Name: John
+
+        person2.sayName(); // Name: Jane
+
+        // biggest dissadvantage of the fatory design pattern is that it does not have a prototype, so if you want to add a method to the prototype, you have to do it manually for each object created by the factory function
+        // this measn duplication of methods with common functionality
+
+        console.log(person1.sayName() == person2.sayName()); // this proves that this is just duplication
+        console.log(person1.sayName == person2.sayName); // this will return false, because they are not the same function, they are two different functions-> this proves that there is duplication of methods, this will cause latency in the code
+        console.log(person1 == person2) // false
+
+        cosole.log(person1 instanceof createPerson)
+        console.log(person1.constructor == createPerson)
+        console.log(person1 instanceof Object)
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

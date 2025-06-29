@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function f1(a, b, c) {
+            console.log(a);
+            console.log(arguments[0]); // This will log 20, because arguments is an array-like object that contains the values of the arguments passed to the function
+            console.log(arguments[1]);
+            console.log(arguments[2]);
+            console.log(arguments[3]); // undefined
+            console.log(arguments[0] + arguments[1]);
+            console.log(arguments.length);
+
+        }
+        f1(20, 30, 40)
+        console.log(f1.name)
+        // all functiona have 2 scopes-> 1 for the constructor and 1 for the prototype
+        // the prototype scope is shared by all the instances of the function, so if you add a method to the prototype, it will be available to all the instances of the function
+        // the constructor scope is unique to each instance of the function, so if you add a property to the constructor, it will be available only to that instance of the function
+
+        
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
