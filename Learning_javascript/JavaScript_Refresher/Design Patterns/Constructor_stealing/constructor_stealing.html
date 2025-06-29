@@ -12,10 +12,17 @@
         }
 
         function subType() {
+            // subtype without being an instance of superttype is tryign to pull the properties of the supertype
             SuperType.call(this); // constructor stealing
         }
 
+
         var instance1 = new subType();
+        // now the color is present in 3 places, // 1. in the supertype, 2. in the subtype and 3. in the instance1
+        
+        var instance3 = new SuperType();
+        console.log(instance3.colors); // ["red", "blue", "green"]
+
         instance1.colors.push("black");
         console.log(instance1.colors); // ["red", "blue", "green", "black"]
 
