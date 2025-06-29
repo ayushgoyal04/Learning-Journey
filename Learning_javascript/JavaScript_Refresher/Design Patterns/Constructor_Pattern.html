@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+
+        function createPerson(name, age, job) {
+            this.name = name;
+            this.age = age;
+            this.job = job;
+            this.sayName = function() {
+                console.log(this.name);
+            };
+            var x = 100;
+        }
+
+        var person1 = new createPerson("John", 30, "Developer");
+        var person2 = new createPerson("Jane", 25, "Designer");
+
+        person1.sayName(); // John
+        person2.sayName(); // Jane
+
+        console.log(person1.sayName === person2.sayName); // false, because each instance has its own sayName method
+        console.log(person1 instanceof createPerson); // true // this means that the person1 can look up to the createPerson prototype
+        console.log(person1.constructor === createPerson); // true
+        console.log(person2.constructor === createPerson); // true
+
+// prototype is a shared memory space for all the instances of the constructor function
+
+// constructor patters has the same issues that the factory pattern had, ie duplication of methods. 
+    </script>
+</head>
+<body>
+
+</body>
+</html>

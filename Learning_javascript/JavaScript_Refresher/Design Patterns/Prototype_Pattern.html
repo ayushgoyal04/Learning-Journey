@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function createPerson() { // every function contains 2 scopes, 1. is the constructor {} and he 2nd sxcope is the prototype scope which is an object. even tho they belong to the same entity yet they are two differemt lexical scopes.
+
+        }
+
+        createPerson.prototype.name = "Ayush";
+        createPerson.prototype.age = 20;
+        createPerson.prototype.job = "Software Engineer";
+        createPerson.prototype.sayName = function() {
+            console.log( this.name );
+        };
+
+        var person1 = new createPerson();
+        /*
+        person1 {
+
+        }
+        */
+       var person2 = new createPerson(); // no privileged entries in the constructor hence nothing goes into the constructor scope, but the prototype scope is shared by all the instances of the constructor function, so all the instances can access the properties and methods of the prototype scope.
+        /*
+        person2 {
+
+        }
+        */
+
+        person1.sayName(); // order of search-> SCA [person1,  createPerson.prototype, Object.prototype]
+        console.log(person1.name); // Ayush
+        console.log(person2.name); // Ayush
+
+        // a constructor is a static clone whereas a prototype is a dynamic lookup
+        console.log(person1.constructor === createPerson); // true
+        console.log(person1 instanceof createPerson); // true
+
+        
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
