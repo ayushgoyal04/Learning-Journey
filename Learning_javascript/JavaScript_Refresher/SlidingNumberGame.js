@@ -1,0 +1,2 @@
+// Aim - build a sliding number game wirh 3x3 matrix which will have numbers from 1 to 8 and one empty space.
+// The game will be won when the numbers are arranged in ascending order with the empty space at the bottom right corner.

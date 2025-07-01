@@ -6,6 +6,7 @@ const c = [...a, ...b, 11, 12, 9]; // ... is the spread operator, it does nto co
 // console.log(c) // [1, 2, 3, 4, 5, 6, 11, 12, 9]
 
 
+// rest operator
 function f1(a, b, ...rem) {
     console.log(a)
     console.log(b)

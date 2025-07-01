@@ -10,3 +10,10 @@ Methods to solve identifier conflicts->
 
 Javascript is a protoype language-> all the common methods are never in the contructor, the are always in the prototype
 prototype design pattern goes alogn with another design pattern called constructor stealing
+
+
+Objects allocated  on heap will dynamically grow but things on stack will not change hence primitive datatype are stored in stack and non primitive data type is stored in heap in js
+
+Every program is executed in 2 contexts, 1- user context and 2 - system context
+
+Usually the objects allocated on the heap will become garbage if they do nto have a reference on the stack.
