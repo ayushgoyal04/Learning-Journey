@@ -1,0 +1,17 @@
+10 3 6
+Root
+A
+B
+C
+A1
+A2
+B1
+B2
+C1
+C2
+1 A1 5
+1 A2 5
+3 A 5
+1 B1 7
+3 Root 5
+3 Root 7
