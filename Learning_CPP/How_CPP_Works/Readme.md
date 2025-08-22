@@ -1,56 +1,83 @@
-Hwo does cpp works?
-main function is a soecial function that even tho has a return type int it si not necessary to return an int.
 
-Header files like iostread do not get compiled seperately, theya re included on top your file, this literally means that they are placed on top fo your code during the preprocessing step.
+# How Does C++ Work?
 
-every cpp file will be compiled intot he object file .o or .obj....
+## The Compilation Process
 
-Linker- combines all the obj files and glues them into a single executable ie and exe file.
+1. **Preprocessing**
+  - The preprocessor handles directives like `#include` and `#define`.
+  - Header files (e.g., `<iostream>`) are not compiled separately; their contents are literally inserted at the top of your code during preprocessing.
 
--- g++ -E test.cpp -o test.i && g++ -S test.cpp -o test.s && g++ -c test.cpp -o test.o && g++ test.o -o test
+2. **Compilation**
+  - Each `.cpp` file is compiled into an object file (`.o` or `.obj`).
+  - Example: `g++ -c Math.cpp -o Math.o`
+  - You can create object files without a header or a `main` function.
 
-The errorlist we get in a cpp program si usually garbage-> it basically paused our outout window lookign for the word error. The better info is in the output window.
+3. **Linking**
+  - The linker combines all object files into a single executable (e.g., `.exe`).
+  - Example: `g++ Math.cpp Log.cpp -o Math`
+  - The job of the linker is to resolve symbols (functions, variables). If it can't, you get a linker error (e.g., "undefined reference").
 
-we get 1 obj file for every cpp file in the project
+## Example Compilation Steps
 
+```sh
+g++ -E test.cpp -o test.i      # Preprocessing
+g++ -S test.cpp -o test.s      # Compilation to assembly
+g++ -c test.cpp -o test.o      # Compilation to object file
+g++ test.o -o test             # Linking to executable
+```
 
-Declaration- statements that informs the compiler that a function exists
+## Errors
 
-Definition- The actual body of the function (the main code)
+- Compiler errors (start with `C`) occur during compilation.
+- Linker errors (start with `LNK`) occur during linking.
+- The error list in some IDEs may be confusing; check the output window for better info.
 
-we have to compile botht the main and the log files together in order for the declaration to work, the linker combines both the objs into 1 .exe
+## Translational Units
 
--- g++ main.cpp Log.cpp -o main
--- ./main
+- Each `.cpp` file is called a "translation unit".
+- Unlike Java, C++ files do not need to match class names; file names have no special meaning.
+- The compiler only needs to know the type of file: `.c` (C file), `.cpp` (C++ file), `.h` (header file).
 
-the job of linker is to resolve symbols otherwise we get a linker error
+## Declaration vs Definition
 
+- **Declaration**: Tells the compiler that a function or variable exists (e.g., `int add(int, int);`).
+- **Definition**: Provides the actual body/implementation (e.g., `int add(int a, int b) { return a + b; }`).
 
-How does the cpp compiler work?
-cpp text file -> obj file (intermediate file) -> exe
-compiler does process like tokanization etx.
-An abstract syntax tree is created which is a representation of our code.
-The end goal pf compiler is to convert our code into either constant data or instructions.
-Syntax tree-> machine code.
+## Linking Multiple Files
 
-each app files are called translational units. Files does not exist in cpp unllike java (where the class name is supposed to be the file name)
-out task is just to inform the compiler about the type of file we are feeding it, is it .c (c file) .cpp(cpp file) .h(header file) thats all. Files have NO meaning.
+- If you split code into multiple files (e.g., `main.cpp` and `Log.cpp`), you must compile and link both together:
+  ```sh
+  g++ main.cpp Log.cpp -o main
+  ./main
+  ```
 
-cpp files(translational units)
- -> object files
+## How the Compiler Works Internally
 
-  -- g++ -c Math.cpp -o Math.o
-we can create obj filed withotu any header or the main function.
+- The compiler tokenizes your code and builds an Abstract Syntax Tree (AST).
+- The AST is converted into machine code or constant data.
+- The end goal is to produce an executable file.
 
-the #include does nothing but copy paste the code of the header file included on top of the preexistign code.
--- Proof- created the endBranc.h header file and inlcuded that in the Math,cpp file.
+## The Role of `#include`
 
-How the C++ Linker Works?
-Once the files are compiled then linking starts. The mainfocus is to find where each symbol and function is link them together. A way to link seperate programs into one executable.
+- The `#include` directive simply copies the contents of the header file into your source file during preprocessing.
+- Proof: If you create a header file (e.g., `endBrace.h`) and include it in `Math.cpp`, its contents are pasted at the top.
 
-explle usage of linker-> in the multiply we also want the logging, so insead of haveing the multiple\y and the log in the same file, we create 2 separate file, then them comlile and link them together.
-NOTE_ the errors in cpp also tell us in that start is the error occuring, ex. when the error si int he compile stage then the error code stars with C, where int he Linker/ link stage it starts with LNK.
+## How the Linker Works
 
--- g++ Math.cpp Log.cpp -o Math
+- After compilation, the linker starts.
+- It finds and connects all symbols and functions, linking them together.
+- This allows you to split code across multiple files and combine them into one executable.
 
-Linking error- unresolved external symbol or undefined reference
+## Example: Using the Linker
+
+- Suppose you have a `multiply` function and a `log` function in separate files. You compile both and link them together:
+  ```sh
+  g++ Math.cpp Log.cpp -o Math
+  ```
+- Linking errors (e.g., "unresolved external symbol" or "undefined reference") occur if the linker can't find a definition for a declared symbol.
+
+## Additional Information
+
+- Modern C++ compilers optimize code during compilation and linking.
+- Static libraries (`.lib` or `.a`) and dynamic/shared libraries (`.dll` or `.so`) are also created and linked similarly.
+- You can use header guards (`#pragma once` or `#ifndef ... #define ... #endif`) to prevent multiple inclusions of the same header file.
