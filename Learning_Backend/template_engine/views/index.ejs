@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Crazy Good HTML Page</title>
+  <style>
+    /* Reset and basic styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    body {
+      background: linear-gradient(120deg, #ff0080, #7928ca, #2afadf);
+      background-size: 600% 600%;
+      animation: gradient 15s ease infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      color: white;
+    }
+
+    .card h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .card p {
+      font-size: 1.1em;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      background: #ffffff33;
+      border: 2px solid white;
+      border-radius: 30px;
+      font-size: 1em;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn:hover {
+      background: white;
+      color: #7928ca;
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>rednering data : <%= age %></h1>
+  <canvas id="particles"></canvas>
+  <div class="card">
+    <h1>Welcome to the Wild Side ✨</h1>
+    <p>This is a crazy good one-page HTML example. Click below for a surprise.</p>
+    <button class="btn" onclick="explode(event)">Click Me 💥</button>
+  </div>
+
+  <script>
+    // Particle explosion effect
+    function explode(e) {
+      const canvas = document.getElementById('particles');
+      const ctx = canvas.getContext('2d');
+      const particles = [];
+      const rect = canvas.getBoundingClientRect();
+      const cx = e.clientX;
+      const cy = e.clientY;
+
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      for (let i = 0; i < 50; i++) {
+        particles.push({
+          x: cx,
+          y: cy,
+          radius: Math.random() * 4 + 2,
+          color: `hsl(${Math.random() * 360}, 100%, 50%)`,
+          velocityX: (Math.random() - 0.5) * 10,
+          velocityY: (Math.random() - 0.5) * 10,
+          alpha: 1
+        });
+      }
+
+      const animate = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((p, index) => {
+          p.x += p.velocityX;
+          p.y += p.velocityY;
+          p.alpha -= 0.02;
+          if (p.alpha <= 0) particles.splice(index, 1);
+          ctx.beginPath();
+          ctx.globalAlpha = p.alpha;
+          ctx.fillStyle = p.color;
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fill();
+        });
+
+        ctx.globalAlpha = 1;
+
+        if (particles.length > 0) {
+          requestAnimationFrame(animate);
+        }
+      };
+
+      animate();
+    }
+
+    window.addEventListener('resize', () => {
+      const canvas = document.getElementById('particles');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    // Init canvas size
+    window.dispatchEvent(new Event('resize'));
+  </script>
+</body>
+</html>
