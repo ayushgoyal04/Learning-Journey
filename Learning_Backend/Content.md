@@ -24,3 +24,6 @@ Contents
 - session creation
 
 - flash messages
+- mongoose queries
+- authentication
+- authorization
