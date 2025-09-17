@@ -22,3 +22,5 @@ Contents
 - crud
 - session and cookies on client and server
 - session creation
+
+- flash messages
