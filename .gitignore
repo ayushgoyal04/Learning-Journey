@@ -6,6 +6,12 @@ node_modules/
 logs/
 *.log.*
 
+# ignore swig files
+*.i
+*_wrap.cxx
+*_wrap.cpp
+
+
 # Ignore operating system files
 .DS_Store
 Thumbs.db
