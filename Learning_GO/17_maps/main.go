@@ -34,5 +34,4 @@ func main() {
 	delete(users, "u455") // no error
 	fmt.Println(users)
 
-
 }
