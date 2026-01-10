@@ -12,7 +12,7 @@ func main() {
 		fmt.Println("error:", err)
 	}
 
-	fmt.Println("case 1: fail early")
+	fmt.Println("case 2: fail early")
 	if err := dowork(false); err != nil {
 		fmt.Println("error:", err)
 	}
